@@ -60,7 +60,7 @@ EGuessStatus FBullCowGame::CheckGuessValidity(FString guess) const
 
 
 // recevied a vaild guess, incriments turn, and returns count
-FBullCowCount FBullCowGame::SubmitGuess(FString guess)
+FBullCowCount FBullCowGame::SubmitValidGuess(FString guess)
 {
 
 	//incriments the turn number
@@ -69,11 +69,11 @@ FBullCowCount FBullCowGame::SubmitGuess(FString guess)
 	//setup a return varible
 	FBullCowCount BullCowCount;
 
-	//loop throgh all letters in the guess
-	int32 HiddemWordLength = MyHiddenWord.length();
-	for (int32 MHWChar = 0; MHWChar < HiddemWordLength;MHWChar++){
-	//compare letters against the hidden word
-		for (int32 GChar = 0; GChar < HiddemWordLength; GChar++) {
+	int32 WordLength = MyHiddenWord.length();	//assuming same length as guess
+	//loop throgh all letters in the hidden word
+	for (int32 MHWChar = 0; MHWChar < WordLength;MHWChar++){
+	//compare letters against the guess
+		for (int32 GChar = 0; GChar < WordLength; GChar++) {
 
 			if (guess[GChar] == MyHiddenWord[MHWChar]) {
 				//if the match then..
