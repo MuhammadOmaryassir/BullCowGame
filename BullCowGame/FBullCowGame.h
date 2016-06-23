@@ -25,6 +25,7 @@ enum class EGuessStatus
 class FBullCowGame
 {
 public:
+
 	FBullCowGame();	//Contructor
 	int32 GetMaxTries() const ;
 	int32 GetCurrentTry() const ;
@@ -32,7 +33,7 @@ public:
 	bool IsGameWon() const ;
 
 
-	EGuessStatus CheckGuessValidity(FString) const ;// ToDo make a more rich return value
+	EGuessStatus CheckGuessValidity(FString) const ; // ToDo make a more rich return value
 
 
 	void Reset(); // ToDo make a more rich return value
@@ -45,6 +46,7 @@ public:
 
 
 private:
+
 	// Look To The Contructor For Initialisation
 	int32 MyCurrentTry;
 	int32 MyMaxTries;
