@@ -79,6 +79,7 @@ FText GetValidGuess()
 {
 	FText guess = "";
 	EGuessStatus status = EGuessStatus::invalid_status;
+
 	do {
 	//get a guess from the player
 	int32 CurrentTry = BCGame.GetCurrentTry ();

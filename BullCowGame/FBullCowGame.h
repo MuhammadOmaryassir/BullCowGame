@@ -48,6 +48,7 @@ public:
 private:
 
 	// Look To The Contructor For Initialisation
+
 	int32 MyCurrentTry;
 	int32 MyMaxTries;
 	FString MyHiddenWord;
