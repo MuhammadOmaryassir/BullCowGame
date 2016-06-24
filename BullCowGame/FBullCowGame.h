@@ -1,59 +1,52 @@
-#pragma once
-#include<string>
+/* The game logic (no view code or direct user interaction)
+The game is a simple guess the word game based on Mastermind
+*/
 
+#pragma once
+#include <string>
+
+// to make syntax Unreal friendly
 using FString = std::string;
 using int32 = int;
 
-// all values intialised to zero 
 struct FBullCowCount
 {
 	int32 Bulls = 0;
 	int32 Cows = 0;
-
 };
 
-enum class EGuessStatus 
+enum class EGuessStatus
 {
-	invalid_status,
-	ok,
+	Invalid_Status,
+	OK,
 	Not_Isogram,
-	Wrong_lenth,
+	Wrong_Length,
 	Not_Lowercase
-
 };
+
 
 class FBullCowGame
 {
 public:
+	FBullCowGame(); // constructor
 
-	FBullCowGame();	//Contructor
-	int32 GetMaxTries() const ;
-	int32 GetCurrentTry() const ;
-	int32 GetHiddenWordLength() const ;
-	bool IsGameWon() const ;
+	int32 GetMaxTries() const;
+	int32 GetCurrentTry() const;
+	int32 GetHiddenWordLength() const;
+	bool IsGameWon() const;
+	EGuessStatus CheckGuessValidity(FString) const;
 
-
-	EGuessStatus CheckGuessValidity(FString) const ; // ToDo make a more rich return value
-
-
-	void Reset(); // ToDo make a more rich return value
-
-
-	// counts Bulls&Cows and increases try # asuming a valid guess
+	void Reset();
 	FBullCowCount SubmitValidGuess(FString);
 
 
-
-
+	// ^^ Please try and ignore this and focus on the interface above ^^
 private:
-
-	// Look To The Contructor For Initialisation
-
+	// see constructor for initialisation
 	int32 MyCurrentTry;
-	int32 MyMaxTries;
 	FString MyHiddenWord;
 	bool bGameIsWon;
 
-	bool IsIsogram(FString) const ;
+	bool IsIsogram(FString) const;
+	bool IsLowercase(FString) const;
 };
-			
